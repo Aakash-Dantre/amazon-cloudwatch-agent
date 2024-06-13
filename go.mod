@@ -37,8 +37,8 @@ replace github.com/open-telemetry/opentelemetry-collector-contrib/processor/reso
 
 replace (
 	github.com/open-telemetry/opentelemetry-collector-contrib/receiver/awscontainerinsightreceiver => ../opentelemetry-collector-contrib/receiver/awscontainerinsightreceiver
-	github.com/open-telemetry/opentelemetry-collector-contrib/receiver/awsxrayreceiver => github.com/amazon-contributing/opentelemetry-collector-contrib/receiver/awsxrayreceiver v0.0.0-20240503173519-cc2b921759f4
-	github.com/open-telemetry/opentelemetry-collector-contrib/receiver/prometheusreceiver => github.com/amazon-contributing/opentelemetry-collector-contrib/receiver/prometheusreceiver v0.0.0-20240503173519-cc2b921759f4
+	github.com/open-telemetry/opentelemetry-collector-contrib/receiver/awsxrayreceiver => ../opentelemetry-collector-contrib/receiver/awsxrayreceiver
+	github.com/open-telemetry/opentelemetry-collector-contrib/receiver/prometheusreceiver => ../opentelemetry-collector-contrib/receiver/prometheusreceiver
 )
 
 // Temporary fix, pending PR https://github.com/shirou/gopsutil/pull/957

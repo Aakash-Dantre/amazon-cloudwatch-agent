@@ -57,6 +57,7 @@ func NewTranslatorWithName(name string) common.Translator[component.Config] {
 			{Key: common.ConfigKey(baseKey, common.ECSKey), Value: ecs},
 			{Key: common.ConfigKey(baseKey, common.KubernetesKey), Value: eks},
 		},
+		logger: zap.Must(zap.NewProduction()),
 	}
 }
 
