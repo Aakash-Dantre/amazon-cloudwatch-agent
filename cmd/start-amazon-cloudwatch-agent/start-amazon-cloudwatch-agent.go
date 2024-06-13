@@ -55,6 +55,8 @@ func translateConfig() error {
 func main() {
 	var writer io.WriteCloser
 
+	log.Println("in agent HERE")
+
 	if runInContainer != config.RUN_IN_CONTAINER_TRUE {
 		writer = &lumberjack.Logger{
 			Filename:   paths.AgentLogFilePath,

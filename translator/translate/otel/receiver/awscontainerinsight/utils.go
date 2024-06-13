@@ -7,6 +7,7 @@ import (
 	"go.opentelemetry.io/collector/confmap"
 
 	"github.com/aws/amazon-cloudwatch-agent/translator/translate/otel/common"
+	//"../../../otel/common"
 )
 
 const (
@@ -26,4 +27,8 @@ func EnhancedContainerInsightsEnabled(conf *confmap.Conf) bool {
 
 func AcceleratedComputeMetricsEnabled(conf *confmap.Conf) bool {
 	return common.GetOrDefaultBool(conf, common.ConfigKey(common.LogsKey, common.MetricsCollectedKey, common.KubernetesKey, common.EnableAcceleratedComputeMetric), true)
+}
+
+func KubeFlowMetricsEnabled(conf *confmap.Conf) bool {
+	return common.GetOrDefaultBool(conf, common.ConfigKey(common.LogsKey, common.MetricsCollectedKey, common.KubernetesKey, common.EnableKubleflowMetric), true)
 }

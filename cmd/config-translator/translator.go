@@ -94,7 +94,8 @@ func main() {
 		}
 	}()
 	ctx := context.CurrentContext()
-
+	log.Println(ctx)
+	log.Println("HERE")
 	mergedJsonConfigMap, err := cmdutil.GenerateMergedJsonConfigMap(ctx)
 	if err != nil {
 		log.Panicf("E! Failed to generate merged json config: %v", err)

@@ -6,6 +6,7 @@ package awscontainerinsight
 import (
 	"errors"
 	"fmt"
+	"go.uber.org/zap"
 	"strings"
 	"time"
 
@@ -37,6 +38,7 @@ type translator struct {
 	factory receiver.Factory
 	// services is a slice of config keys to orchestrators.
 	services []*collections.Pair[string, string]
+	logger   *zap.Logger
 }
 
 var _ common.Translator[component.Config] = (*translator)(nil)
@@ -113,6 +115,10 @@ func (t *translator) Translate(conf *confmap.Conf) (component.Config, error) {
 
 	cfg.PrefFullPodName = cfg.PrefFullPodName || common.GetOrDefaultBool(conf, common.ConfigKey(common.LogsKey, common.MetricsCollectedKey, common.KubernetesKey, common.PreferFullPodName), false)
 	cfg.EnableAcceleratedComputeMetrics = cfg.EnableAcceleratedComputeMetrics || AcceleratedComputeMetricsEnabled(conf)
+
+	cfg.EnableKubeflowMetrics = cfg.EnableKubeflowMetrics || KubeFlowMetricsEnabled(conf)
+
+	t.logger.Info("Successfully translated config", zap.Any("config", cfg))
 
 	return cfg, nil
 }
